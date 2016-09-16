@@ -117,3 +117,14 @@ class CvsReader
 end
 
 # thats how you read the each row in the csv file and append it as OBJECTS
+
+# VARIABLES
+
+person1 = "Tim"
+person2 = person1
+
+person1[0] = 'J'
+
+puts "person1 is #{person1}"
+puts "person2 is #{person2}"
+# variable is simply a refrence to a object.
