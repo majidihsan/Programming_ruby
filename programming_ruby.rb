@@ -101,3 +101,19 @@ puts "New Price = #{book.price}"
 #Price = 3.14
 #New Price = 2.355
 #Note you can get the same result by making the price as atter_accessor.
+
+#CLASSES WORKING WITH CLASSES
+
+class CvsReader
+  def initialize
+    @books_in_stock = []
+  end
+
+  def read_in_cvs_data(cvs_file_name)
+    CVS.foreach(cvs_file_name, header: true) do |row|
+      @books_in_stock << BookInStock.new(row["ISBN"], row["Amount"])
+    end
+  end
+end
+
+# thats how you read the each row in the csv file and append it as OBJECTS
