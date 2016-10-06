@@ -128,3 +128,18 @@ person1[0] = 'J'
 puts "person1 is #{person1}"
 puts "person2 is #{person2}"
 # variable is simply a refrence to a object.
+
+#INHERITANCE MODULES AND MIXINS
+
+class Parent
+  def say_hello
+    puts "Hello from #{self}"
+  end
+end
+p = Parent.new
+puts p.say_hello
+
+class Child < Parent
+end
+c = Child.new
+puts c.say_hello
