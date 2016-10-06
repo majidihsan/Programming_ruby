@@ -143,3 +143,25 @@ class Child < Parent
 end
 c = Child.new
 puts c.say_hello
+
+class Person
+  def initialize(name)
+    @name = name
+  end
+end
+p = Person.new("Michael")
+puts p
+
+# does not produce the name bcz super class of the person is Object and Parent of Obejct is BasicObject
+# if we define a method called def to_s then it will find the name
+
+class Person
+  def initialize(name)
+    @name = name
+  end
+  def to_s
+    "person named #{@name}"
+  end
+end
+p = Person.new("Michael")
+puts p

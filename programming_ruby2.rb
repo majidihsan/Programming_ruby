@@ -1,0 +1,24 @@
+require 'gserver'
+
+class LogServer < GServer
+  def initialize
+    super(12345)
+  end
+
+  def server(client)
+    client.puts get_end_of_log_file
+  end
+
+  private
+
+  def get_end_of_log_file
+    File.open("/var/log/system.log") do |log|
+      log.seek(-1000, IO::SEEK_END)
+      log.gets
+      log.read
+    end
+  end
+end
+server = LogServer.new
+server.start.join
+# this is an example code for ho Logserver Inherits from Gserver parent class
